@@ -1,2 +1,2 @@
 # coding=utf-8
-from .routes import flaskipy_post
+from .routes import post_routes

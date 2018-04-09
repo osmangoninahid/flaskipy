@@ -1,6 +1,7 @@
 # coding=utf-8
 from flask import Flask, jsonify
-from .posts import flaskipy_post
+from .posts import post_routes
+from .users import user_routes
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -31,4 +32,5 @@ connect_to_db(app)
 
 # Routes Register
 # register post routers
-app.register_blueprint(flaskipy_post)
+app.register_blueprint(post_routes)
+app.register_blueprint(user_routes)

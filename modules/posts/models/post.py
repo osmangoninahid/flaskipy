@@ -1,6 +1,4 @@
 # coding=utf-8
-
-
 from flask_sqlalchemy import SQLAlchemy
 from random import choice
 
