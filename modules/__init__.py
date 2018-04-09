@@ -1,14 +1,15 @@
 # coding=utf-8
 from flask import Flask, jsonify
 from .posts import flaskipy_post
-from flask_sqlalchemy import SQLAlchemy
+from utils.db import connect_to_db
 
-db = SQLAlchemy()
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Configurations
 app.config.from_object('config')
+# Database connection
+connect_to_db(app)
 
 @app.errorhandler(404)
 def not_found(error):
@@ -19,15 +20,6 @@ def not_found(error):
     }
 
     return jsonify(response), 404
-
-def connect_to_db(app, db_uri="postgres://uaqklaqg:q9mPWIe3uYXDgVTLRt1r3WTs9201fxvW@stampy.db.elephantsql.com:5432/uaqklaqg"):
-    """Connect the database to Flask app."""
-    # Configure to use PostgreSQL database
-    app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
-    db.app = app
-    db.init_app(app)
-
-connect_to_db(app)
 
 # Routes Register
 # register post routers
