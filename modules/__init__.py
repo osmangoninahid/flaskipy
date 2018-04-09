@@ -1,8 +1,10 @@
 # coding=utf-8
 from flask import Flask, jsonify
-from utils.db import connect_to_db
 from .posts import post_routes
 from .users import user_routes
+from .posts import post_routes
+from .users import user_routes
+from utils.db import connect_to_db
 
 app = Flask(__name__)
 

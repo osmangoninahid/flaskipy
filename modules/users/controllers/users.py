@@ -59,8 +59,8 @@ def get_user(id):
     try:
         result = User.query.get(id)
         if result:
-            del result.as_dict()['password']
-            return jsonify({"success": True, "message": "Fetched user successfully", "data": result}), 200
+            # del result.as_dict()['password']
+            return jsonify({"success": True, "message": "Fetched user successfully", "data": result.as_dict()}), 200
         else:
             return jsonify({"success": False, "message": "No user found with this {0}".format(id)}), 404
 
@@ -85,7 +85,7 @@ def update_user(id):
             result.full_name = body.get('full_name')
             result.email = body.get('email')
             db.session.commit()
-            del result['password']
+            # del result['password']
 
             return jsonify({"success": True, "message": "User updated successfully", "data": result.as_dict()}), 201
 

@@ -1,28 +1,30 @@
-# flaskipy
-RESTFul flask 
+# Flaskipy
 
-flaskipy will help you to create a RESTFul backend  including basic CRUD operations with [PostgreSQL](https://www.postgresql.org/).
+RESTFul flask
+
+flaskipy will help you to create a RESTFul backend including basic CRUD operations with [PostgreSQL](https://www.postgresql.org/).
+
+> It's Under Development
 
 ## Table of Contents
 
-- [Background](#background)
-- [Install](#install)
-- [Usage](#usage)
-- [Project Run](#how-to-run-this-project)
-- [Command Help](#display-the-command-options-with-the-h-option)
-- [Project Structure](#project-structure)
-- [Endpoints](#endpoints)
-- [Features Released](#features-released)
-- [Upcoming Features](#upcoming-features)
-- [Maintainers](#maintainers)
-- [Contributes](#contributes)
-- [License](#license)
-
+* [Background](#background)
+* [Install](#install)
+* [Usage](#usage)
+* [Project Run](#how-to-run-this-project)
+* [Command Help](#display-the-command-options-with-the-h-option)
+* [Project Structure](#project-structure)
+* [Endpoints](#endpoints)
+* [Features Released](#features-released)
+* [Upcoming Features](#upcoming-features)
+* [Maintainers](#maintainers)
+* [Contributes](#contributes)
+* [License](#license)
 
 ## Background
 
-
 ## Install
+
 ```shell
 $[sudo] pip install flaskipy
 ```
@@ -36,12 +38,14 @@ $ cd flaskipy
 $ python setup.py install
 ```
 
-## Before running this project (after cloned from *github*)
+## Before running this project (after cloned from _github_)
+
 * change the name of `config.ini.example` to `config.in`
 * inside `config.in` replace the value of the variables with your values
 * run `pip install -r requirements.txt` to make sure dependencies are installed
 
 ## Usage
+
 ```shell
 // Initialize project
 $ cd [project_name]
@@ -51,6 +55,7 @@ $ flaskipy add-module ModuleName
 ```
 
 ## How to Run this project
+
 ```shell
 // Development
 $ cd [project_name]
@@ -58,9 +63,11 @@ $ python main.py
 ```
 
 It should make a question, like
-  + Name of the project (It will create a folder in your current working directory and the folder name will be your project name)
+
+* Name of the project (It will create a folder in your current working directory and the folder name will be your project name)
 
 ### Display the command options with the -h option:
+
 ```ssh
 $ flaskipy -h
 
@@ -75,7 +82,9 @@ $ flaskipy -h
         --git           add .gitignore
     -f, --force         force on non-empty directory
 ```
+
 ## Project Structure
+
 ```bash
 ├── config.ini
 ├── config.ini.example
@@ -113,41 +122,43 @@ $ flaskipy -h
     └── __init__.py
 ```
 
-`config.ini.example` is the file that serves as example for other people contributing to your project, it contains all the needed *ini* variables with dummy values to be replaced after your project gets cloned (`config.ini` does not get tracked by git).
+`config.ini.example` is the file that serves as example for other people contributing to your project, it contains all the needed _ini_ variables with dummy values to be replaced after your project gets cloned (`config.ini` does not get tracked by git).
 
 ## Endpoints
-Request      | Response
--------------|----------------------------
-GET base-url/examples | This will return all example with pagination support
-POST base-url/examples | This will create a new example
-GET base-url/example/{id} | This will return a example
-PUT base-url/example/{id} | This is for updating a example
-DELETE base-url/example | This will delete the example with identification
 
+| Request                   | Response                                             |
+| ------------------------- | ---------------------------------------------------- |
+| GET base-url/examples     | This will return all example with pagination support |
+| POST base-url/examples    | This will create a new example                       |
+| GET base-url/example/{id} | This will return a example                           |
+| PUT base-url/example/{id} | This is for updating a example                       |
+| DELETE base-url/example   | This will delete the example with identification     |
 
 ### Features Released
-- [x] RestAPI Boilerplate
-- [x] Flaskipy CLI
 
+* [x] RestAPI Boilerplate
+* [x] Flaskipy CLI
 
 ### Upcoming Features
-- [ ] JWT integration for authentication and authorization
-- [ ] DeployNow integration
-- [ ] ApiDoc generation
-- [ ] Automated deploy with pm2 and Python-Fabric
-- [ ] Dockerize
-- [ ] and Based on feedback
+
+* [ ] JWT integration for authentication and authorization
+* [ ] DeployNow integration
+* [ ] ApiDoc generation
+* [ ] Automated deploy with guinicorn and Python-Fabric
+* [ ] Dockerize
+* [ ] and Based on feedback
 
 ## Maintainers
+
 * **[Osman Goni Nahid](https://github.com/osmangoninahid)**
 * **[Porimol Chandro](https://github.com/porimol)**
 
-
 ## Contributes
-See  the list of [contributors](https://github.com/osmangoninahid/flaskipy/contributors) who participated in this project.
 
+See the list of [contributors](https://github.com/osmangoninahid/flaskipy/contributors) who participated in this project.
 
 ## License
+
 ### The MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
