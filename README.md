@@ -144,7 +144,7 @@ $ flaskipy -h
 * [ ] JWT integration for authentication and authorization
 * [ ] DeployNow integration
 * [ ] ApiDoc generation
-* [ ] Automated deploy with pm2 and Python-Fabric
+* [ ] Automated deploy with guinicorn and Python-Fabric
 * [ ] Dockerize
 * [ ] and Based on feedback
 
