@@ -3,7 +3,7 @@ from flask import jsonify, request
 from pprint import pprint
 
 
-def index():
+def get_all_post():
     try:
         response = {
             'success': True,
@@ -17,7 +17,7 @@ def index():
         pprint(ex)
 
 
-def create():
+def create_post():
     try:
         response = {
             'success': True,
@@ -38,7 +38,7 @@ def create():
         return jsonify(response), 500
 
 
-def get(id):
+def get_post(id):
     try:
         response = {
             'success': True,
@@ -52,7 +52,7 @@ def get(id):
         pprint(ex)
 
 
-def update(id):
+def update_post(id):
     try:
         response = {
             'success': True,
@@ -73,7 +73,7 @@ def update(id):
         return jsonify(response), 500
 
 
-def delete(id):
+def delete_post(id):
     try:
         response = {
             'success': True,
