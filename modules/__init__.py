@@ -1,6 +1,6 @@
 # coding=utf-8
-from .posts import posts_app
-from flask import Flask, Blueprint
+from .posts import flaskipy_post
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
