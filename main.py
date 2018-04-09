@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
-from routes import app
+from modules import app
 
 if __name__ == '__main__':
     # run application server
