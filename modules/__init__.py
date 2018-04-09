@@ -1,10 +1,10 @@
 # coding=utf-8
 from flask import Flask, jsonify
-from .posts import flaskipy_post
 from utils.db import connect_to_db
+from .posts import post_routes
+from .users import user_routes
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Configurations
 app.config.from_object('config')
@@ -23,4 +23,5 @@ def not_found(error):
 
 # Routes Register
 # register post routers
-app.register_blueprint(flaskipy_post)
+app.register_blueprint(post_routes)
+app.register_blueprint(user_routes)

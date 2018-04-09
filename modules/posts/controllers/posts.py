@@ -41,7 +41,7 @@ def create_post():
             db.session.commit()
             pprint(post_obj)
 
-            return jsonify({'success': True, 'message': 'added', 'data': post_obj.as_dict()}), 201
+            return jsonify({'success': True, 'message': 'Post added successfully', 'data': post_obj.as_dict()}), 201
 
     except Exception as ex:
         # error pretty print
