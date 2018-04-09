@@ -18,29 +18,29 @@ flaskipy_post = Blueprint("flaskipy_post", __name__, url_prefix="/{0}".format(AP
 flaskipy_post.add_url_rule(
     "/posts",
     endpoint="index",
-    view_func=index,
+    view_func=get_all_post,
     methods=['GET'])
 
 flaskipy_post.add_url_rule(
     "/posts",
      endpoint="create",
-     view_func=create,
+     view_func=create_post,
      methods=['POST'])
 
 flaskipy_post.add_url_rule(
     "/posts/<id>",
     endpoint="get",
-    view_func=get,
+    view_func=get_post,
     methods=['GET'])
 
 flaskipy_post.add_url_rule(
     "/posts/<id>",
     endpoint="update",
-    view_func=update,
+    view_func=update_post,
     methods=['PUT'])
 
 flaskipy_post.add_url_rule(
     "/posts/<id>",
     endpoint="delete",
-    view_func=delete,
+    view_func=delete_post,
     methods=['DELETE'])
