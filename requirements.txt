@@ -1,5 +1,6 @@
 aniso8601==2.0.1
 click==6.7
+configparser==3.5.0
 Flask==0.12.2
 Flask-SQLAlchemy==2.3.2
 itsdangerous==0.24
