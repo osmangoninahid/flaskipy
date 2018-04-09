@@ -1,5 +1,5 @@
 # coding=utf-8
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, jsonify
 from config import API_VERSION
 from ..controllers import *
 
@@ -10,7 +10,13 @@ posts_app.config.from_object('config')
 
 @posts_app.errorhandler(404)
 def not_found(error):
-    return "Error Message: {0}".format(error)
+    # return "Error Message: {0}".format(error)
+    response = {
+        'success': False,
+        'message': "Error Message: {0}".format(error)
+    }
+
+    return jsonify(response), 404
 
 # Routers blueprint
 flaskipy_post = Blueprint("flaskipy_post", __name__, url_prefix="/{0}".format(API_VERSION))
