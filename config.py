@@ -36,7 +36,7 @@ API_PREFIX = config_parser.get("api_info", "prefix")
 API_VERSION = config_parser.get("api_info", "version")
 
 # DB config
-DB_NAME = config_parser.get("db_env", "db_name")
-DB_USER = config_parser.get("db_env", "db_user")
-DB_PASSWORD = config_parser.get("db_env", "db_password")
+DB_NAME = config_parser.get("db", "db_name").strip()
+DB_USER = config_parser.get("db", "db_user").strip()
+DB_PASSWORD = config_parser.get("db", "db_password").strip()
 
