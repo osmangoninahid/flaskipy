@@ -2,8 +2,7 @@
 from flask import Flask, jsonify
 from .posts import post_routes
 from .users import user_routes
-from .posts import post_routes
-from .users import user_routes
+from .auth import auth_routes
 from utils.db import connect_to_db
 
 app = Flask(__name__)
@@ -27,3 +26,4 @@ def not_found(error):
 # register post routers
 app.register_blueprint(post_routes)
 app.register_blueprint(user_routes)
+app.register_blueprint(auth_routes)
