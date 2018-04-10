@@ -23,8 +23,8 @@ def routes():
 
     print("Route list")
     headers = ('Action', 'Method', 'URI')
-    dotted_lines = range(1, 151)
-    blank_spaces = ''.join(' ' for _ in range(0, 50))
+    dotted_lines = range(1, 111)
+    blank_spaces = ''.join(' ' for _ in range(0, 37))
     print(''.join('-' for _ in dotted_lines))
 
     for index, header in enumerate(headers):
