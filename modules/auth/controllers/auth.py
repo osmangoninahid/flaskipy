@@ -2,6 +2,7 @@
 from flask import Flask, jsonify, request, g
 from ...users.models import db, User
 from pprint import pprint
+from datetime import datetime, timedelta
 import jwt
 
 
@@ -16,10 +17,10 @@ def login():
             user = User.query.filter_by(user_name=body.get('user_name')).first()
             if user:
                 if User.verify_password(user.password, body.get('password')):
-                    token = jwt.encode({"user" : user.as_dict(),"exp": datetime.datetime.utcnow() + datetime.timedelta(seconds=24*60*60)}, 'sEcReT', algorithm='HS256').decode('utf-8')
+                    token = jwt.encode({"user" : user.as_dict(),"exp": datetime.utcnow() + timedelta(seconds=24*60*60)}, 'sEcReT', algorithm='HS256').decode('utf-8')
                     return jsonify({'success': True, 'message': 'Logged in successfully', 'token': token}), 200
                 else:
-                    return jsonify({'success': False, 'message': 'Pawword not matched'}), 200
+                    return jsonify({'success': False, 'message': 'Password not matched'}), 200
             else:
                 return jsonify({'success': False, 'message': 'No user found with this user_name'}), 200
 
@@ -51,7 +52,8 @@ def signup():
             )
             db.session.add(user_obj)
             db.session.commit()
-            token = jwt.encode({"user" : user.as_dict(),"exp": datetime.datetime.utcnow() + datetime.timedelta(seconds=24*60*60)}, 'sEcReT', algorithm='HS256').decode('utf-8')
+
+            token = jwt.encode({"user" : user_obj.as_dict(),"exp": datetime.utcnow() + timedelta(seconds=24*60*60)}, 'sEcReT', algorithm='HS256').decode('utf-8')
             return jsonify({'success': True, 'message': 'User singed up successfully', 'data': user_obj.as_dict(), "token" : token}), 201
 
     except Exception as ex:
