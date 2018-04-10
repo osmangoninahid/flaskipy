@@ -76,7 +76,6 @@ def verify_auth_token(func):
 
             if auth_user:
                 g.auth_user = auth_user
-                return True
             else:
                 invalid_res = {
                     'success' : True,
