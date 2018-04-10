@@ -1,7 +1,8 @@
 # coding=utf-8
-from flask import jsonify, request
+from flask import jsonify, request, g
 from ..models import db, Post
 from pprint import pprint
+from ...auth import verify_auth_token
 
 
 def get_all_post():
@@ -23,7 +24,9 @@ def get_all_post():
         return jsonify(response), 500
 
 
+@verify_auth_token
 def create_post():
+    pprint(g.auth_user)
     try:
         body = request.json
         print("Request body")
@@ -55,6 +58,7 @@ def create_post():
         return jsonify(response), 500
 
 
+@verify_auth_token
 def get_post(id):
     try:
         result = Post.query.get(id)
@@ -75,6 +79,7 @@ def get_post(id):
         return jsonify(response), 500
 
 
+@verify_auth_token
 def update_post(id):
     try:
         body = request.json
@@ -102,6 +107,7 @@ def update_post(id):
         return jsonify(response), 500
 
 
+@verify_auth_token
 def delete_post(id):
     try:
         result = Post.query.get(id)
