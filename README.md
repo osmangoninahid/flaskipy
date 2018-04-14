@@ -132,8 +132,6 @@ module  Automatically create module :param name: str...
 └── tests
 ```
 
-`config.ini.example` is the file that serves as example for other people contributing to your project, it contains all the needed _ini_ variables with dummy values to be replaced after your project gets cloned (`config.ini` does not get tracked by git).
-
 ## Endpoints
 
 | Request                   | Response                                             |
