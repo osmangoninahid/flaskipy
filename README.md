@@ -2,7 +2,7 @@
 
 RESTFul flask
 
-Flaskipy will help you to create a RESTFul backend including basic CRUD operations with [PostgreSQL](https://www.postgresql.org/).
+Flaskipy CLI will help you to create a RESTFul backend.
 
 > It's Under Development
 
@@ -51,8 +51,11 @@ $ python setup.py install
 // Initialize project
 $ cd [project_name]
 
+// Project structue initialize
+$ flaskipy init
+
 // Add new module
-$ flaskipy add-module ModuleName
+$ flaskipy module --name YourModuleName
 ```
 
 ## How to Run this project
@@ -70,18 +73,16 @@ It should make a question, like
 ### Display the command options with the -h option:
 
 ```ssh
-$ flaskipy -h
+$ flaskipy -help
 
-  Usage: flaskipy [options] [name]
+Usage: flaskipy [OPTIONS] COMMAND [ARGS]...
 
-  Options:
+Options:
+--help  Show this message and exit.
 
-    -h, --help          output usage information
-        --version       output the version number
-    -am, --add-module     Add new module
-    -rm, --remove-module  Remove existing module
-        --git           add .gitignore
-    -f, --force         force on non-empty directory
+Commands:
+init    Project structure initializer :return: None
+module  Automatically create module :param name: str...
 ```
 
 ## Project Structure
@@ -90,37 +91,45 @@ $ flaskipy -h
 ├── config.ini
 ├── config.ini.example
 ├── config.py
-├── main.py
-├── manage.py
-├── modules
-│   ├── __init__.py
-│   ├── posts
-│   │   ├── controllers
+├── example
+│   ├── config.ini
+│   ├── config.py
+│   ├── main.py
+│   ├── modules
+│   │   ├── blogs
+│   │   │   ├── controllers
+│   │   │   │   ├── blogs.py
+│   │   │   │   ├── __init__.py
 │   │   │   ├── __init__.py
-│   │   │   ├── posts.py
+│   │   │   ├── models
+│   │   │   │   └── __init__.py
+│   │   │   └── routes
+│   │   │       ├── __init__.py
 │   │   ├── __init__.py
-│   │   ├── models
-│   │   │   ├── __init__.py
-│   │   │   ├── post.py
-│   │   └── routes
-│   │       ├── __init__.py
-│   └── users
-│       ├── controllers
-│       │   └── __init__.py
-│       ├── __init__.py
-│       ├── models
-│       │   └── __init__.py
-│       └── routes
-│           └── __init__.py
+│   ├── README.md
+│   ├── tests
+│   │   └── __init__.py
+│   └── utils
+│       └── __init__.py
+├── flaskipy
+│   ├── commands.py
+│   ├── flaskipy_templates
+│   │   ├── config_ini.txt
+│   │   ├── config.txt
+│   │   ├── controller_init.txt
+│   │   ├── controller.txt
+│   │   ├── __init__.txt
+│   │   ├── main.txt
+│   │   ├── modules_init.txt
+│   │   ├── README.txt
+│   │   └── route.txt
+│   ├── __init__.py
+├── main.py
 ├── README.md
 ├── requirements.txt
-├── routes
-│   ├── __init__.py
-├── tests
-└── utils
-    ├── common.py
-    ├── db.py
-    └── __init__.py
+├── setup.cfg
+├── setup.py
+└── tests
 ```
 
 `config.ini.example` is the file that serves as example for other people contributing to your project, it contains all the needed _ini_ variables with dummy values to be replaced after your project gets cloned (`config.ini` does not get tracked by git).
