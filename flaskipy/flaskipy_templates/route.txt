@@ -1,0 +1,37 @@
+# coding=utf-8
+from flask import Blueprint
+from config import API_VERSION
+from ..controllers import *
+
+# Routers blueprint
+router_name = Blueprint("router_name", __name__, url_prefix="/{0}".format(API_VERSION))
+
+router_name.add_url_rule(
+    "/router_endpoint",
+    endpoint="index",
+    view_func=index,
+    methods=['GET'])
+
+router_name.add_url_rule(
+    "/router_endpoint",
+     endpoint="create",
+     view_func=create,
+     methods=['POST'])
+
+router_name.add_url_rule(
+    "/router_endpoint/<int:id>",
+    endpoint="get",
+    view_func=get,
+    methods=['GET'])
+
+router_name.add_url_rule(
+    "/router_endpoint/<int:id>",
+    endpoint="update",
+    view_func=update,
+    methods=['PUT'])
+
+router_name.add_url_rule(
+    "/router_endpoint/<int:id>",
+    endpoint="delete",
+    view_func=delete,
+    methods=['DELETE'])
