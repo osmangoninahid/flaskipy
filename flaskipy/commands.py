@@ -98,7 +98,6 @@ def module(name):
         __create_controller(name, controller_dir)
         __create_model(name, model_dir)
         __create_route(name, route_dir)
-
         # update __init__.py
         with open('modules/__init__.py', 'a+') as file:
             file.write('\n# register post routers\n')
@@ -149,6 +148,29 @@ def __create_model(module_name, model_dir):
     """
     __directory_creator(model_dir)
     __file_copier(templates_dir + '/__init__.txt', model_dir + '/__init__.py')
+    # __file_copier(templates_dir + '/model.txt', model_dir +'/'+ module_name+'.py')
+    with open(templates_dir + '/model.txt') as file:
+        file_contents = file.readlines()
+
+    model_file_content = []
+    for content in file_contents:
+        content = content.replace('model_name', module_name.capitalize())
+        model_file_content.append(content.replace('table_name', module_name))
+
+    with open(model_dir +'/'+ module_name+'.py', 'w') as file:
+        file.writelines(model_file_content)
+
+
+    with open(templates_dir + '/model_init.txt') as file:
+        model_contents = file.readlines()
+
+    model_init_content = []
+    for content in model_contents:
+        content = content.replace('model_name', module_name)
+        model_init_content.append(content.replace('model_class', module_name.capitalize()))
+
+    with open(model_dir + '/__init__.py', 'w') as init_file:
+        init_file.writelines(model_init_content)
 
 
 def __create_route(module_name, route_dir):
