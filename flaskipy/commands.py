@@ -4,9 +4,11 @@ from os import makedirs, chdir
 from shutil import copy
 import click
 import inquirer
+import inflect
 
 root_dir = dirname(realpath(__file__))
 templates_dir = root_dir+'/flaskipy_templates'
+p = inflect.engine()
 
 @click.group()
 def cli():
@@ -83,7 +85,10 @@ def module(name):
 
     :return: None
     """
-    module_dir = 'modules/'+name
+    singular_name = p.plural_verb(name)
+    plural_name =  p.plural(singular_name)
+
+    module_dir = 'modules/'+ plural_name
     controller_dir = module_dir+'/controllers'
     model_dir = module_dir+'/models'
     route_dir = module_dir + '/routes'
@@ -95,19 +100,20 @@ def module(name):
             file.write('# coding=utf-8\n')
             file.write('from .routes import {0}_route\n'.format(name))
 
-        __create_controller(name, controller_dir)
-        __create_model(name, model_dir)
-        __create_route(name, route_dir)
+        __create_controller(plural_name, controller_dir)
+        __create_model(singular_name, model_dir)
+        __create_route(plural_name, route_dir)
+
         # update __init__.py
         with open('modules/__init__.py', 'a+') as file:
             file.write('\n# register post routers\n')
-            file.write('from .{0} import {0}_route\n'.format(name))
-            file.write('app.register_blueprint({0}_route)\n'.format(name))
+            file.write('from .{0} import {0}_route\n'.format(plural_name))
+            file.write('app.register_blueprint({0}_route)\n'.format(plural_name))
 
-        click.echo('{0} module created'.format(name))
+        click.echo('{0} module created'.format(plural_name))
 
     else:
-        click.echo('{0} module already exist'.format(name))
+        click.echo('{0} module already exist'.format(plural_name))
 
 
 def __create_controller(module_name, controller_dir):

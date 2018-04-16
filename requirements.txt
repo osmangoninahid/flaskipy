@@ -10,6 +10,7 @@ Flask-Bcrypt==0.7.1
 Flask-Migrate==2.1.1
 Flask-Script==2.0.6
 Flask-SQLAlchemy==2.3.2
+inflect==0.2.5
 inquirer==2.2.0
 itsdangerous==0.24
 Jinja2==2.10
