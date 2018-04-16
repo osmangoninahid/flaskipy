@@ -1,0 +1,5 @@
+configparser==3.5.0
+Flask==0.12.2
+Flask-SQLAlchemy==2.3.2
+SQLAlchemy==1.2.4
+Werkzeug==0.14.1

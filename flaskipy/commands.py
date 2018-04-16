@@ -34,6 +34,7 @@ def init():
     __file_copier(templates_dir + '/config_ini.txt', 'config.ini')
     __file_copier(templates_dir + '/config.txt', 'config.py')
     __file_copier(templates_dir + '/main.txt', 'main.py')
+    __file_copier(templates_dir + '/requirements.txt', 'requirements.txt')
     __file_copier(templates_dir + '/README.txt', 'README.md')
 
 
