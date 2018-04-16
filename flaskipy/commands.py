@@ -5,6 +5,7 @@ from shutil import copy
 import click
 import inquirer
 import inflect
+from pprint import pprint
 
 root_dir = dirname(realpath(__file__))
 templates_dir = root_dir+'/flaskipy_templates'
@@ -21,21 +22,30 @@ def init():
 
     :return: None
     """
-    answers = inquirer.prompt([inquirer.Text('name', message="What's your project name ? ")])
-    __directory_creator(answers.get('name'))
-    chdir(answers.get('name'))
-    click.echo('Project structure initializing...')
-    __directory_creator('utils')  # utilities package create
-    __file_copier(templates_dir + '/__init__.txt', 'utils/__init__.py')
-    __directory_creator('modules')  # models package create
-    __file_copier(templates_dir + '/modules_init.txt', 'modules/__init__.py')
-    __directory_creator('tests')  # tests package create
-    __file_copier(templates_dir + '/__init__.txt', 'tests/__init__.py')
-    __file_copier(templates_dir + '/config_ini.txt', 'config.ini')
-    __file_copier(templates_dir + '/config.txt', 'config.py')
-    __file_copier(templates_dir + '/main.txt', 'main.py')
-    __file_copier(templates_dir + '/requirements.txt', 'requirements.txt')
-    __file_copier(templates_dir + '/README.txt', 'README.md')
+    try:
+        answers = inquirer.prompt([inquirer.Text('name', message="What's your project name ? ")])
+        __directory_creator(answers.get('name'))
+        chdir(answers.get('name'))
+        click.echo('Project structure initializing...')
+        __directory_creator('utils')  # utilities package create
+        __file_copier(templates_dir + '/__init__.txt', 'utils/__init__.py')
+        __directory_creator('modules')  # models package create
+        __file_copier(templates_dir + '/modules_init.txt', 'modules/__init__.py')
+        __directory_creator('tests')  # tests package create
+        __file_copier(templates_dir + '/__init__.txt', 'tests/__init__.py')
+        __file_copier(templates_dir + '/config_ini.txt', 'config.ini')
+        __file_copier(templates_dir + '/config.txt', 'config.py')
+        __file_copier(templates_dir + '/main.txt', 'main.py')
+        __file_copier(templates_dir + '/requirements.txt', 'requirements.txt')
+        __file_copier(templates_dir + '/README.txt', 'README.md')
+
+    except FileNotFoundError as fnf:
+        print(str(fnf))
+        exit(0)
+
+    except Exception as ex:
+        pprint(ex)
+        exit(0)
 
 
 def __directory_creator(dir_name):
@@ -86,35 +96,40 @@ def module(name):
 
     :return: None
     """
-    singular_name = p.plural_verb(name)
-    plural_name =  p.plural(singular_name)
+    try:
+        singular_name = p.plural_verb(name)
+        plural_name =  p.plural(singular_name)
 
-    module_dir = 'modules/'+ plural_name
-    controller_dir = module_dir+'/controllers'
-    model_dir = module_dir+'/models'
-    route_dir = module_dir + '/routes'
+        module_dir = 'modules/'+ plural_name
+        controller_dir = module_dir+'/controllers'
+        model_dir = module_dir+'/models'
+        route_dir = module_dir + '/routes'
 
-    if not exists(module_dir):
-        __directory_creator(module_dir)
-        # create __init__.py
-        with open(module_dir + '/__init__.py', 'a+') as file:
-            file.write('# coding=utf-8\n')
-            file.write('from .routes import {0}_route\n'.format(name))
+        if not exists(module_dir):
+            __directory_creator(module_dir)
+            # create __init__.py
+            with open(module_dir + '/__init__.py', 'a+') as file:
+                file.write('# coding=utf-8\n')
+                file.write('from .routes import {0}_route\n'.format(name))
 
-        __create_controller(plural_name, controller_dir)
-        __create_model(singular_name, model_dir)
-        __create_route(plural_name, route_dir)
+            __create_controller(plural_name, controller_dir)
+            __create_model(singular_name, model_dir)
+            __create_route(plural_name, route_dir)
 
-        # update __init__.py
-        with open('modules/__init__.py', 'a+') as file:
-            file.write('\n# register post routers\n')
-            file.write('from .{0} import {0}_route\n'.format(plural_name))
-            file.write('app.register_blueprint({0}_route)\n'.format(plural_name))
+            # update __init__.py
+            with open('modules/__init__.py', 'a+') as file:
+                file.write('\n# register post routers\n')
+                file.write('from .{0} import {0}_route\n'.format(plural_name))
+                file.write('app.register_blueprint({0}_route)\n'.format(plural_name))
 
-        click.echo('{0} module created'.format(plural_name))
+            click.echo('{0} module created'.format(plural_name))
 
-    else:
-        click.echo('{0} module already exist'.format(plural_name))
+        else:
+            click.echo('{0} module already exist'.format(plural_name))
+
+    except Exception as ex:
+        pprint(ex)
+        exit(0)
 
 
 def __create_controller(module_name, controller_dir):
