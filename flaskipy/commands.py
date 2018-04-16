@@ -1,8 +1,9 @@
 # coding=utf-8
 from os.path import exists, realpath, dirname
-from os import makedirs
+from os import makedirs, chdir
 from shutil import copy
 import click
+import inquirer
 
 root_dir = dirname(realpath(__file__))
 templates_dir = root_dir+'/flaskipy_templates'
@@ -18,6 +19,9 @@ def init():
 
     :return: None
     """
+    answers = inquirer.prompt([inquirer.Text('name', message="What's your project name ? ")])
+    __directory_creator(answers.get('name'))
+    chdir(answers.get('name'))
     click.echo('Project structure initializing...')
     __directory_creator('utils')  # utilities package create
     __file_copier(templates_dir + '/__init__.txt', 'utils/__init__.py')

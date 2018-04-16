@@ -1,7 +1,5 @@
 # Flaskipy
 
-RESTFul flask
-
 Flaskipy CLI will help you to create a RESTFul backend.
 
 > It's Under Development
@@ -166,25 +164,25 @@ module  Automatically create module :param name: str...
 See the list of [contributors](https://github.com/osmangoninahid/flaskipy/contributors) who participated in this project.
 
 ### How to become a contributor
+
 If you want to contribute to `Flaskipy` and make it better, your help is very welcome.
 You can make constructive, helpful bug reports, feature requests and the noblest of all contributions.
 If like to contribute in a good way, then follow the following guidelines.
 
 #### How to make a clean pull request
 
-- Create a personal fork on Github.
-- Clone the fork on your local machine.(Your remote repo on Github is called `origin`.)
-- Add the original repository as a remote called `upstream`.
-- If you created your fork a while ago be sure to pull upstream changes into your local repository.
-- Create a new branch to work on! Branch from `dev`.
-- Implement/fix your feature, comment your code.
-- Follow `Flaskipy`'s code style, including indentation(4 spaces).
-- Write or adapt tests as needed.
-- Add or change the documentation as needed.
-- Push your branch to your fork on Github, the remote `origin`.
-- From your fork open a pull request to the `dev` branch.
-- Once the pull request is approved and merged, please pull the changes from `upstream` to your local repo and delete your extra branch(es).
-
+* Create a personal fork on Github.
+* Clone the fork on your local machine.(Your remote repo on Github is called `origin`.)
+* Add the original repository as a remote called `upstream`.
+* If you created your fork a while ago be sure to pull upstream changes into your local repository.
+* Create a new branch to work on! Branch from `dev`.
+* Implement/fix your feature, comment your code.
+* Follow `Flaskipy`'s code style, including indentation(4 spaces).
+* Write or adapt tests as needed.
+* Add or change the documentation as needed.
+* Push your branch to your fork on Github, the remote `origin`.
+* From your fork open a pull request to the `dev` branch.
+* Once the pull request is approved and merged, please pull the changes from `upstream` to your local repo and delete your extra branch(es).
 
 ## License
 
