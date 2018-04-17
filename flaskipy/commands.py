@@ -87,6 +87,7 @@ def module(name):
     """
     singular_name = p.plural_verb(name)
     plural_name =  p.plural(singular_name)
+    capital_name = singular_name.capitalize()
 
     module_dir = 'modules/'+ plural_name
     controller_dir = module_dir+'/controllers'
