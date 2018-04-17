@@ -35,7 +35,10 @@ setup(
     long_description=long_description,
     keywords = ['Flaskipy'],
     install_requires=[
-        'Click', 'flask',
+        'Click',
+        'flask',
+        'inquirer',
+        'inflect',
     ],
     entry_points='''
         [console_scripts]
