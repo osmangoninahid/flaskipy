@@ -41,7 +41,8 @@ def init():
         __file_copier(templates_dir + '/README.txt', 'README.md')
 
     except FileNotFoundError as fnf:
-        print(str(fnf))
+        # print(str(fnf))
+        print('You must have input a directory name!')
         exit(0)
 
     except Exception as ex:
