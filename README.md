@@ -1,8 +1,6 @@
 # Flaskipy
 
-Flaskipy CLI will help you to create a RESTFul backend.
-
-> It's Under Development
+Flaskipy CLI will help you to create a RESTFul backend backend including [PostgreSQL](https://www.postgresql.org/).
 
 ## Table of Contents
 
@@ -21,8 +19,24 @@ Flaskipy CLI will help you to create a RESTFul backend.
 * [License](#license)
 
 ## Background
+> Will be added
+
+### Python Version
+> Minimum python version should have 3.x.x or upper
 
 ## Install
+
+A step by step series of examples that tell you have to get a development env running
+
+
+### How do I get set up?
+If you would like to used ```Virtualenv```
+Install the virtualenv using this command(If you have not installed virtualenv yet.)
+
+```ssh
+$ [sudo] pip install virtualenv
+```
+Learn more to visit [Virtualenv](https://virtualenv.pypa.io), [User Guide](https://virtualenv.pypa.io/en/stable/userguide/)
 
 ```shell
 $[sudo] pip install flaskipy
@@ -34,16 +48,16 @@ OR, git clone
 $ git clone https://github.com/osmangoninahid/flaskipy
 
 $ cd flaskipy
+$ pip install -r requirements.txt
 $ python setup.py install
 ```
 
-## Before running this project (after cloned from _github_)
-
-* change the name of `config.ini.example` to `config.in`
-* inside `config.in` replace the value of the variables with your values
-* run `pip install -r requirements.txt` to make sure dependencies are installed
-
 ## Usage
+When you will initializing, here you will be asked a question and you have to answer
+
+Example:
+
+[?] What's your project name ?: YOUR_PROJECT_NAME
 
 ```shell
 // Initialize project
@@ -54,6 +68,9 @@ $ flaskipy init
 
 // Add new module
 $ flaskipy module --name YourModuleName
+
+// OR
+$ flaskipy module
 ```
 
 ## How to Run this project
@@ -86,8 +103,6 @@ module  Automatically create module :param name: str...
 ## Project Structure
 
 ```bash
-├── config.ini
-├── config.ini.example
 ├── config.py
 ├── example
 │   ├── config.ini
@@ -97,6 +112,15 @@ module  Automatically create module :param name: str...
 │   │   ├── blogs
 │   │   │   ├── controllers
 │   │   │   │   ├── blogs.py
+│   │   │   │   ├── __init__.py
+│   │   │   ├── __init__.py
+│   │   │   ├── models
+│   │   │   │   └── __init__.py
+│   │   │   └── routes
+│   │   │       ├── __init__.py
+│   │   ├── posts
+│   │   │   ├── controllers
+│   │   │   │   ├── posts.py
 │   │   │   │   ├── __init__.py
 │   │   │   ├── __init__.py
 │   │   │   ├── models
@@ -116,10 +140,14 @@ module  Automatically create module :param name: str...
 │   │   ├── config.txt
 │   │   ├── controller_init.txt
 │   │   ├── controller.txt
+│   │   ├── db.txt
 │   │   ├── __init__.txt
 │   │   ├── main.txt
+│   │   ├── model_init.txt
+│   │   ├── model.txt
 │   │   ├── modules_init.txt
 │   │   ├── README.txt
+│   │   ├── requirements.txt
 │   │   └── route.txt
 │   ├── __init__.py
 ├── main.py
@@ -134,11 +162,11 @@ module  Automatically create module :param name: str...
 
 | Request                   | Response                                             |
 | ------------------------- | ---------------------------------------------------- |
-| GET base-url/examples     | This will return all example with pagination support |
-| POST base-url/examples    | This will create a new example                       |
-| GET base-url/example/{id} | This will return a example                           |
-| PUT base-url/example/{id} | This is for updating a example                       |
-| DELETE base-url/example   | This will delete the example with identification     |
+| GET base-url/posts        | This will return all example with pagination support |
+| POST base-url/posts       | This will create a new example                       |
+| GET base-url/posts/{id}   | This will return a example                           |
+| PUT base-url/posts/{id}   | This is for updating a example                       |
+| DELETE base-url/posts     | This will delete the example with identification     |
 
 ### Features Released
 
@@ -186,7 +214,7 @@ If like to contribute in a good way, then follow the following guidelines.
 
 ## License
 
-### The MIT License
+### [The MIT License](LICENSE.txt)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
