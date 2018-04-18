@@ -28,6 +28,7 @@ def init():
         chdir(answers.get('name'))
         click.echo('Project structure initializing...')
         __directory_creator('utils')  # utilities package create
+        __file_copier(templates_dir + '/db.txt', 'utils/db.py')
         __file_copier(templates_dir + '/__init__.txt', 'utils/__init__.py')
         __directory_creator('modules')  # models package create
         __file_copier(templates_dir + '/modules_init.txt', 'modules/__init__.py')
@@ -100,6 +101,7 @@ def module(name):
     plural_name =  p.plural(singular_name)
     capital_name = singular_name.capitalize()
 
+    try:
         module_dir = 'modules/'+ plural_name
         controller_dir = module_dir+'/controllers'
         model_dir = module_dir+'/models'
@@ -110,17 +112,17 @@ def module(name):
             # create __init__.py
             with open(module_dir + '/__init__.py', 'a+') as file:
                 file.write('# coding=utf-8\n')
-                file.write('from .routes import {0}_route\n'.format(name))
+                file.write('from .routes import {0}_routes\n'.format(singular_name))
 
-            __create_controller(plural_name, controller_dir)
-            __create_model(singular_name, model_dir)
-            __create_route(plural_name, route_dir)
+            __create_controller(singular_name, plural_name, capital_name, controller_dir)
+            __create_model(singular_name, plural_name, capital_name, model_dir)
+            __create_route(singular_name, plural_name, capital_name, route_dir)
 
             # update __init__.py
             with open('modules/__init__.py', 'a+') as file:
-                file.write('\n# register post routers\n')
-                file.write('from .{0} import {0}_route\n'.format(plural_name))
-                file.write('app.register_blueprint({0}_route)\n'.format(plural_name))
+                file.write('\n# register {0} routers\n'.format(singular_name))
+                file.write('from .{0} import {1}_routes\n'.format(plural_name,singular_name))
+                file.write('app.register_blueprint({0}_routes)\n'.format(singular_name))
 
             click.echo('{0} module created'.format(plural_name))
 
@@ -132,7 +134,7 @@ def module(name):
         exit(0)
 
 
-def __create_controller(module_name, controller_dir):
+def __create_controller(singular_name, plural_name, capital_name, controller_dir):
     """Creating controllers
 
     :param module_name: str
@@ -144,20 +146,32 @@ def __create_controller(module_name, controller_dir):
     :return: None
     """
     __directory_creator(controller_dir)
-    __file_copier(templates_dir + '/controller.txt', controller_dir +'/'+module_name+'.py')
+    __file_copier(templates_dir + '/controller.txt', controller_dir +'/'+plural_name+'.py')
+    with open(templates_dir + '/controller.txt') as file:
+        controller_temp_content = file.readlines()
+
+    controller_content = []
+    for content in controller_temp_content:
+        content = content.replace('plural_name', plural_name)
+        content = content.replace('capital_name', capital_name)
+        controller_content.append(content.replace('singular_name', singular_name))
+
+    with open(controller_dir +'/'+plural_name+'.py', 'w') as file:
+        file.writelines(controller_content)
 
     with open(templates_dir + '/controller_init.txt') as file:
         file_contents = file.readlines()
 
     init_content = []
     for content in file_contents:
-        init_content.append(content.replace('controller_name', module_name))
+        content = content.replace('plural_name', plural_name)
+        init_content.append(content.replace('singular_name', singular_name))
 
     with open(controller_dir + '/__init__.py', 'w') as file:
         file.writelines(init_content)
 
 
-def __create_model(module_name, model_dir):
+def __create_model(singular_name, plural_name, capital_name, model_dir):
     """Create models
 
     :param module_name: str
@@ -170,16 +184,15 @@ def __create_model(module_name, model_dir):
     """
     __directory_creator(model_dir)
     __file_copier(templates_dir + '/__init__.txt', model_dir + '/__init__.py')
-    # __file_copier(templates_dir + '/model.txt', model_dir +'/'+ module_name+'.py')
     with open(templates_dir + '/model.txt') as file:
         file_contents = file.readlines()
 
     model_file_content = []
     for content in file_contents:
-        content = content.replace('model_name', module_name.capitalize())
-        model_file_content.append(content.replace('table_name', module_name))
+        content = content.replace('capital_name', capital_name)
+        model_file_content.append(content.replace('plural_name', plural_name))
 
-    with open(model_dir +'/'+ module_name+'.py', 'w') as file:
+    with open(model_dir +'/'+ singular_name+'.py', 'w') as file:
         file.writelines(model_file_content)
 
 
@@ -188,14 +201,14 @@ def __create_model(module_name, model_dir):
 
     model_init_content = []
     for content in model_contents:
-        content = content.replace('model_name', module_name)
-        model_init_content.append(content.replace('model_class', module_name.capitalize()))
+        content = content.replace('singular_name', singular_name)
+        model_init_content.append(content.replace('capital_name', capital_name))
 
     with open(model_dir + '/__init__.py', 'w') as init_file:
         init_file.writelines(model_init_content)
 
 
-def __create_route(module_name, route_dir):
+def __create_route(singular_name, plural_name, capital_name, route_dir):
     """Create routes
 
     :param module_name: str
@@ -213,8 +226,8 @@ def __create_route(module_name, route_dir):
 
     init_content = []
     for content in file_contents:
-        content = content.replace('router_endpoint', module_name)
-        init_content.append(content.replace('router_name', module_name+'_route'))
+        content = content.replace('plural_name', plural_name)
+        init_content.append(content.replace('singular_name', singular_name))
 
     with open(route_dir + '/__init__.py', 'w') as file:
         file.writelines(init_content)

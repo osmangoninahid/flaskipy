@@ -14,9 +14,6 @@ class Post(db.Model):
     title = db.Column(db.Text, nullable=False)
     slug = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text)
-    # author = db.Column(db.Integer, db.ForeignKey('user.id'),nullable=False)
-    # status = db.Column(db.Text, nullable=True)
-    # meta_data = db.Column(db.Text, nullable=True)
 
     def __init__(self, title, description):
         self.title = title

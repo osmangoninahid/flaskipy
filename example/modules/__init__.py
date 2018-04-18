@@ -1,10 +1,13 @@
 # coding=utf-8
 from flask import Flask, jsonify
+from utils.db import connect_to_db
 
 app = Flask(__name__)
 
 # Configurations
 app.config.from_object('config')
+# Database connection
+connect_to_db(app)
 
 @app.errorhandler(404)
 def not_found(error):
@@ -19,5 +22,5 @@ def not_found(error):
 # Routes Register
 
 # register post routers
-from .blogs import blogs_route
-app.register_blueprint(blogs_route)
+from .posts import post_routes
+app.register_blueprint(post_routes)

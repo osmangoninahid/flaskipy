@@ -5,6 +5,8 @@ version = v1
 ; DB environment
 ; ==============================================
 [db]
-db_name =
-db_user =
-db_password =
+db_host = put_your_db_host
+db_name = put_your_db_name
+db_user = put_your_db_user_name
+db_password = put_your_db_password
+db_port = put_your_db_port

@@ -1,2 +1,2 @@
 # coding=utf-8
-from .model_name import db, model_class
+from .singular_name import db, capital_name

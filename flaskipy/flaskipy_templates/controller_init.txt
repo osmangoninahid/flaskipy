@@ -1,2 +1,2 @@
 # coding=utf-8
-from .controller_name import index, create, get, update, delete
+from .plural_name import get_all_singular_name, add_singular_name, get_singular_name, update_singular_name, delete_singular_name

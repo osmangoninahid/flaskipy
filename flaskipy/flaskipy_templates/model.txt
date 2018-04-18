@@ -5,10 +5,10 @@ from random import choice
 db = SQLAlchemy()
 
 
-class model_name(db.Model):
-    """A model class"""
+class capital_name(db.Model):
+    """A capital_name class"""
 
-    __tablename__ = "table_name"
+    __tablename__ = "plural_name"
 
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     title = db.Column(db.Text, nullable=False)
@@ -21,9 +21,9 @@ class model_name(db.Model):
         self.description = description
 
     def __repr__(self):
-        """Display when printing a Post object"""
+        """Display when printing a capital_name object"""
 
-        return "<Post: {}>".format(self.title)
+        return "<capital_name: {}>".format(self.title)
 
     def as_dict(self):
         """Convert object to dictionary"""

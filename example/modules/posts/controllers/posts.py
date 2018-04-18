@@ -1,29 +1,29 @@
 # coding=utf-8
 from flask import jsonify, request, g
-from ..models import db, capital_name
+from ..models import db, Post
 from pprint import pprint
 
 
-def get_all_singular_name():
+def get_all_post():
     try:
-        results = capital_name.query.all()
+        results = Post.query.all()
         data = [result.as_dict() for result in results]
 
-        return jsonify({"success": True, "message": "Fetch all plural_name successfully", "data": data}), 200
+        return jsonify({"success": True, "message": "Fetch all posts successfully", "data": data}), 200
 
     except Exception as ex:
         # error pretty print
         pprint(ex)
         response = {
             'success': False,
-            'message': 'Something went wrong on fetching plural_name',
+            'message': 'Something went wrong on fetching posts',
             'error': str(ex)
         }
 
         return jsonify(response), 500
 
 
-def add_singular_name():
+def add_post():
     try:
         body = request.json
         print("Request body")
@@ -33,94 +33,94 @@ def add_singular_name():
             return jsonify({"success": False, "message": "Required fields missing", "error": body}), 206
 
         else:
-            singular_name_obj = capital_name(
+            post_obj = Post(
                 title=body.get('title'),
                 description=body.get('description')
             )
-            db.session.add(singular_name_obj)
+            db.session.add(post_obj)
             db.session.commit()
-            pprint(singular_name_obj)
+            pprint(post_obj)
 
-            return jsonify({'success': True, 'message': 'capital_name added successfully', 'data': singular_name_obj.as_dict()}), 201
+            return jsonify({'success': True, 'message': 'Post added successfully', 'data': post_obj.as_dict()}), 201
 
     except Exception as ex:
         # error pretty print
         pprint(ex)
         response = {
             'success': False,
-            'message': 'Something went wrong on creating singular_name',
+            'message': 'Something went wrong on creating post',
             'error': str(ex)
         }
 
         return jsonify(response), 500
 
 
-def get_singular_name(id):
+def get_post(id):
     try:
-        result = capital_name.query.get(id)
+        result = Post.query.get(id)
         if result:
-            return jsonify({"success": True, "message": "Fetch singular_name successfully", "data": result.as_dict()}), 200
+            return jsonify({"success": True, "message": "Fetch post successfully", "data": result.as_dict()}), 200
         else:
-            return jsonify({"success": False, "message": "No singular_name found with this {0}".format(id)}), 404
+            return jsonify({"success": False, "message": "No post found with this {0}".format(id)}), 404
 
     except Exception as ex:
         # error pretty print
         pprint(ex)
         response = {
             'success': False,
-            'message': 'Something went wrong on fetching single singular_name',
+            'message': 'Something went wrong on fetching single post',
             'error': str(ex)
         }
 
         return jsonify(response), 500
 
 
-def update_singular_name(id):
+def update_post(id):
     try:
         body = request.json
-        result = capital_name.query.get(id)
+        result = Post.query.get(id)
 
         if result:
             result.title = body.get('title')
             result.description = body.get('description')
             db.session.commit()
 
-            return jsonify({"success": True, "message": "capital_name successfully updated", "data": result.as_dict()}), 201
+            return jsonify({"success": True, "message": "Post successfully updated", "data": result.as_dict()}), 201
 
         else:
-            return jsonify({"success": False, "message": "No singular_name found with this {0}".format(id)}), 404
+            return jsonify({"success": False, "message": "No post found with this {0}".format(id)}), 404
 
     except Exception as ex:
         # error pretty print
         pprint(ex)
         response = {
             'success': False,
-            'message': 'Something went wrong on updating singular_name',
+            'message': 'Something went wrong on updating post',
             'error': str(ex)
         }
 
         return jsonify(response), 500
 
 
-def delete_singular_name(id):
+def delete_post(id):
     try:
-        result = capital_name.query.get(id)
+        result = Post.query.get(id)
 
         if result:
             db.session.delete(result)
             db.session.commit()
 
-            return jsonify({"success": True, "message": "capital_name successfully deleted", "data": result.as_dict()}), 201
+            return jsonify({"success": True, "message": "Post successfully deleted", "data": result.as_dict()}), 201
 
         else:
-            return jsonify({"success": False, "message": "No singular_name found with this {0}".format(id)}), 404
+            return jsonify({"success": False, "message": "No post found with this {0}".format(id)}), 404
 
     except Exception as ex:
         # error pretty print
         pprint(ex)
         response = {
             'success': False,
-            'message': 'Something went wrong on updating singular_name',
+            'message': 'Something went wrong on updating post',
             'error': str(ex)
         }
 
