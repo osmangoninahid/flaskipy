@@ -14,7 +14,7 @@ data_files = ['flaskipy/flaskipy_templates/'+file for file in listdir(templates_
 
 setup(
     name='flaskipy',
-    version='0.1.0',
+    version='0.1.1',
     python_requires='>3.0.0',
     packages = find_packages(
         include=['flaskipy'],
