@@ -23,7 +23,7 @@ def init():
     :return: None
     """
     try:
-        answers = inquirer.prompt([inquirer.Text('name', message="What's your project name ? ")])
+        answers = inquirer.prompt([inquirer.Text('name', message="What's your project name ?")])
         __directory_creator(answers.get('name'))
         chdir(answers.get('name'))
         click.echo('Project structure initializing...')

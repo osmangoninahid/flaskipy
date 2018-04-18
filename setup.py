@@ -23,6 +23,13 @@ setup(
     data_files=[("flaskipy_templates", data_files)],  # package data files
     url='https://github.com/osmangoninahid/flaskipy',
     license='MIT License',
+    classifiers=[
+          'Development Status :: 2 - Pre-Alpha',
+          'Intended Audience :: Developers',
+          'License :: OSI Approved :: MIT License',
+          'Programming Language :: Python :: 3.5',
+          'Framework :: Flask'
+      ],
     author=[
         'Osman Goni Nahid',
         'Porimol Chandro'
@@ -31,9 +38,9 @@ setup(
         'nirobshitol@gmail.com',
         'porimolchandroroy@gmail.com'
     ],
-    description='Flaskipy is a cli tool for Flask',
+    description='Flaskipy is a cli tool for building RESTFul API with Python-Flask',
     long_description=long_description,
-    keywords = ['Flaskipy'],
+    keywords = ['Flask-RESTFul API', 'Generator', 'CLI','Flaskipy'],
     install_requires=[
         'Click',
         'flask',
