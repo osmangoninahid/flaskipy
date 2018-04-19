@@ -19,23 +19,28 @@ Flaskipy CLI will help you to create a RESTFul backend backend including [Postgr
 * [License](#license)
 
 ## Background
+
 > Will be added
 
 ### Python Version
+
 > Minimum python version should have 3.x.x or upper
 
 ## Install
 
 A step by step series of examples that tell you have to get a development env running
 
+[![asciicast](https://asciinema.org/a/HYRq01spP3VgrQ33bRNANbvni.png)](https://asciinema.org/a/HYRq01spP3VgrQ33bRNANbvni)
 
 ### How do I get set up?
-If you would like to used ```Virtualenv```
+
+If you would like to used `Virtualenv`
 Install the virtualenv using this command(If you have not installed virtualenv yet.)
 
 ```ssh
 $ [sudo] pip install virtualenv
 ```
+
 Learn more to visit [Virtualenv](https://virtualenv.pypa.io), [User Guide](https://virtualenv.pypa.io/en/stable/userguide/)
 
 ```shell
@@ -53,6 +58,7 @@ $ python setup.py install
 ```
 
 ## Usage
+
 When you will initializing, here you will be asked a question and you have to answer
 
 Example:
@@ -160,13 +166,13 @@ module  Automatically create module :param name: str...
 
 ## Endpoints
 
-| Request                   | Response                                             |
-| ------------------------- | ---------------------------------------------------- |
-| GET base-url/posts        | This will return all example with pagination support |
-| POST base-url/posts       | This will create a new example                       |
-| GET base-url/posts/{id}   | This will return a example                           |
-| PUT base-url/posts/{id}   | This is for updating a example                       |
-| DELETE base-url/posts     | This will delete the example with identification     |
+| Request                 | Response                                             |
+| ----------------------- | ---------------------------------------------------- |
+| GET base-url/posts      | This will return all example with pagination support |
+| POST base-url/posts     | This will create a new example                       |
+| GET base-url/posts/{id} | This will return a example                           |
+| PUT base-url/posts/{id} | This is for updating a example                       |
+| DELETE base-url/posts   | This will delete the example with identification     |
 
 ### Features Released
 
