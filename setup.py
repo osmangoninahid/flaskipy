@@ -7,7 +7,7 @@ from os import listdir
 root_dir = dirname(realpath(__file__))
 templates_dir = root_dir+'/flaskipy/flaskipy_templates'
 # read readme file
-with open('README.md', 'r') as readme_file:
+with open('README.rst', encoding='utf-8') as readme_file:
     long_description = readme_file.read()
 # package data file
 data_files = ['flaskipy/flaskipy_templates/'+file for file in listdir(templates_dir) if file.endswith(".txt")]
@@ -29,7 +29,7 @@ setup(
           'License :: OSI Approved :: MIT License',
           'Programming Language :: Python :: 3.5',
           'Framework :: Flask'
-      ],
+    ],
     author=[
         'Osman Goni Nahid',
         'Porimol Chandro'
