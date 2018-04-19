@@ -37,19 +37,19 @@ A step by step series of examples that tell you have to get a development env ru
 If you would like to used `Virtualenv`
 Install the virtualenv using this command(If you have not installed virtualenv yet.)
 
-```ssh
+```python
 $ [sudo] pip install virtualenv
 ```
 
 Learn more to visit [Virtualenv](https://virtualenv.pypa.io), [User Guide](https://virtualenv.pypa.io/en/stable/userguide/)
 
-```shell
+```python
 $[sudo] pip install flaskipy
 ```
 
 OR, git clone
 
-```shell
+```python
 $ git clone https://github.com/osmangoninahid/flaskipy
 
 $ cd flaskipy
@@ -65,7 +65,7 @@ Example:
 
 [?] What's your project name ?: YOUR_PROJECT_NAME
 
-```shell
+```python
 // Initialize project
 $ cd [project_name]
 
@@ -81,7 +81,7 @@ $ flaskipy module
 
 ## How to Run this project
 
-```shell
+```python
 // Development
 $ cd [project_name]
 $ python main.py
@@ -93,7 +93,7 @@ It should make a question, like
 
 ### Display the command options with the -h option:
 
-```ssh
+```python
 $ flaskipy -help
 
 Usage: flaskipy [OPTIONS] COMMAND [ARGS]...
@@ -108,7 +108,7 @@ module  Automatically create module :param name: str...
 
 ## Project Structure
 
-```bash
+```python
 ├── config.py
 ├── example
 │   ├── config.ini

@@ -1,7 +1,7 @@
 Flaskipy
 ========
 
-Flaskipy CLI will help you to create a RESTFul backend backend including
+Flaskipy CLI will help you to create a RESTFul backend including
 `PostgreSQL <https://www.postgresql.org/>`__.
 
 Table of Contents
@@ -37,26 +37,28 @@ Install
 A step by step series of examples that tell you have to get a
 development env running
 
+|asciicast|
+
 How do I get set up?
 ~~~~~~~~~~~~~~~~~~~~
 
 If you would like to used ``Virtualenv`` Install the virtualenv using
 this command(If you have not installed virtualenv yet.)
 
-.. code:: ssh
+.. code:: python
 
     $ [sudo] pip install virtualenv
 
 Learn more to visit `Virtualenv <https://virtualenv.pypa.io>`__, `User
 Guide <https://virtualenv.pypa.io/en/stable/userguide/>`__
 
-.. code:: shell
+.. code:: python
 
     $[sudo] pip install flaskipy
 
 OR, git clone
 
-.. code:: shell
+.. code:: python
 
     $ git clone https://github.com/osmangoninahid/flaskipy
 
@@ -74,7 +76,7 @@ Example:
 
 [?] What's your project name ?: YOUR\_PROJECT\_NAME
 
-.. code:: shell
+.. code:: python
 
     // Initialize project
     $ cd [project_name]
@@ -91,7 +93,7 @@ Example:
 How to Run this project
 -----------------------
 
-.. code:: shell
+.. code:: python
 
     // Development
     $ cd [project_name]
@@ -105,7 +107,7 @@ It should make a question, like
 Display the command options with the -h option:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: ssh
+.. code:: python
 
     $ flaskipy -help
 
@@ -121,7 +123,7 @@ Display the command options with the -h option:
 Project Structure
 -----------------
 
-.. code:: bash
+.. code:: python
 
     ├── config.py
     ├── example
@@ -275,3 +277,6 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+.. |asciicast| image:: https://asciinema.org/a/HYRq01spP3VgrQ33bRNANbvni.png
+   :target: https://asciinema.org/a/HYRq01spP3VgrQ33bRNANbvni

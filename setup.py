@@ -7,8 +7,8 @@ from os import listdir
 root_dir = dirname(realpath(__file__))
 templates_dir = root_dir+'/flaskipy/flaskipy_templates'
 # read readme file
-with open('README.rst', encoding='utf-8') as readme_file:
-    long_description = readme_file.read()
+with open('README.rst', encoding='utf-8') as f:
+    long_description = f.read()
 # package data file
 data_files = ['flaskipy/flaskipy_templates/'+file for file in listdir(templates_dir) if file.endswith(".txt")]
 
