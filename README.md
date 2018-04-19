@@ -1,6 +1,6 @@
 # Flaskipy
 
-Flaskipy CLI will help you to create a RESTFul backend backend including [PostgreSQL](https://www.postgresql.org/).
+Flaskipy CLI will help you to create a RESTFul backend including [PostgreSQL](https://www.postgresql.org/).
 
 ## Table of Contents
 
