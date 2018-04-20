@@ -109,59 +109,36 @@ module  Automatically create module :param name: str...
 ## Project Structure
 
 ```python
+├── config.ini
 ├── config.py
-├── example
-│   ├── config.ini
-│   ├── config.py
-│   ├── main.py
-│   ├── modules
-│   │   ├── blogs
-│   │   │   ├── controllers
-│   │   │   │   ├── blogs.py
-│   │   │   │   ├── __init__.py
-│   │   │   ├── __init__.py
-│   │   │   ├── models
-│   │   │   │   └── __init__.py
-│   │   │   └── routes
-│   │   │       ├── __init__.py
-│   │   ├── posts
-│   │   │   ├── controllers
-│   │   │   │   ├── posts.py
-│   │   │   │   ├── __init__.py
-│   │   │   ├── __init__.py
-│   │   │   ├── models
-│   │   │   │   └── __init__.py
-│   │   │   └── routes
-│   │   │       ├── __init__.py
-│   │   ├── __init__.py
-│   ├── README.md
-│   ├── tests
-│   │   └── __init__.py
-│   └── utils
-│       └── __init__.py
-├── flaskipy
-│   ├── commands.py
-│   ├── flaskipy_templates
-│   │   ├── config_ini.txt
-│   │   ├── config.txt
-│   │   ├── controller_init.txt
-│   │   ├── controller.txt
-│   │   ├── db.txt
-│   │   ├── __init__.txt
-│   │   ├── main.txt
-│   │   ├── model_init.txt
-│   │   ├── model.txt
-│   │   ├── modules_init.txt
-│   │   ├── README.txt
-│   │   ├── requirements.txt
-│   │   └── route.txt
-│   ├── __init__.py
 ├── main.py
+├── modules
+│   ├── blogs
+│   │   ├── controllers
+│   │   │   ├── blogs.py
+│   │   │   ├── __init__.py
+│   │   ├── __init__.py
+│   │   ├── models
+│   │   │   ├── blog.py
+│   │   │   ├── __init__.py
+│   │   └── routes
+│   │       ├── __init__.py
+│   ├── posts
+│   │   ├── controllers
+│   │   │   ├── posts.py
+│   │   │   ├── __init__.py
+│   │   ├── __init__.py
+│   │   ├── models
+│   │   │   └── __init__.py
+│   │   │   └── post.py
+│   │   └── routes
+│   │       ├── __init__.py
+│   ├── __init__.py
 ├── README.md
-├── requirements.txt
-├── setup.cfg
-├── setup.py
-└── tests
+├── tests
+│   └── __init__.py
+└── utils
+    └── __init__.py
 ```
 
 ## Endpoints
