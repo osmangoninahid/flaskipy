@@ -2,7 +2,7 @@ configparser==3.5.0
 Flask==0.12.2
 Flask-SQLAlchemy==2.3.2
 SQLAlchemy==1.2.4
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 Mako==1.0.7
 MarkupSafe==1.0
 passlib==1.7.1
