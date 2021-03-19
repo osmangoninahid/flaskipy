@@ -13,7 +13,7 @@ Flask-SQLAlchemy==2.3.2
 inflect==0.2.5
 inquirer==2.2.0
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.11.3
 Mako==1.0.7
 MarkupSafe==1.0
 passlib==1.7.1
