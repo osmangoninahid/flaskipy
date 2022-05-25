@@ -19,7 +19,7 @@ MarkupSafe==1.0
 passlib==1.7.1
 psycopg2==2.7.3.2
 pycparser==2.18
-PyJWT==1.6.1
+PyJWT==2.4.0
 python-dateutil==2.7.2
 python-editor==1.0.3
 pytz==2018.3
